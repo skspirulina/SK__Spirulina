@@ -284,6 +284,124 @@
       color: #00695c;
       font-weight: bold;
     }
+
+
+
+
+
+    .container {
+      width: 90%;
+      max-width: 1250px;
+      margin: auto;
+      padding: 60px 0;
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .doc-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid #dff3ed;
+      transition: 0.35s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .doc-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .doc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
+    }
+
+    .doc-image {
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #eefaf6;
+    }
+
+    .doc-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .doc-card:hover .doc-image img {
+      transform: scale(1.04);
+    }
+
+    .doc-content {
+      padding: 24px;
+    }
+
+    .doc-content h2 {
+      color: #0d5c49;
+      margin-bottom: 12px;
+      font-size: 1.4rem;
+    }
+
+    .doc-content p {
+      color: #617c74;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #00a97a;
+      color: white;
+      padding: 11px 24px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #008f68;
+      transform: translateY(-2px);
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 70px;
+      color: #6d857e;
+      font-size: 0.95rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -414,6 +532,114 @@
       </div>
     </div>
   </section>
+
+
+   <div class="container">
+
+    <div class="section">
+      <h2>SK Spirulina Certifications Or Documents</h2>
+      <p>
+        Official company registrations and quality certifications of SK Spirulina Farming and Manufacturing.
+      </p>
+    </div>
+
+    <div class="documents-grid">
+
+      <div class="doc-card">
+        <div class="doc-image">
+          <img src="https://i.ibb.co/7xCs3MQN/msme.jpg" alt="MSME Certificate">
+        </div>
+
+        <div class="doc-content">
+          <h2>MSME Certificate</h2>
+
+          <p>
+            Government registered MSME certificate of SK Spirulina Farming and Manufacturing.
+          </p>
+
+          <a href="https://i.ibb.co/7xCs3MQN/msme.jpg" target="_blank" class="btn">
+            View Document
+          </a>
+        </div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-image">
+          <img src="https://i.ibb.co/mFbL02r2/fssai.png" alt="FSSAI Licence">
+        </div>
+
+        <div class="doc-content">
+          <h2>FSSAI Licence</h2>
+
+          <p>
+            Official food safety licence ensuring premium quality SK spirulina products.
+          </p>
+
+          <a href="https://i.ibb.co/mFbL02r2/fssai.png" target="_blank" class="btn">
+            View Document
+          </a>
+        </div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-image">
+          <img src="https://i.ibb.co/204RBj3y/gst.png" alt="GST Certificate">
+        </div>
+
+        <div class="doc-content">
+          <h2>GST Registration</h2>
+
+          <p>
+            Verified GST registration document for transparent and trusted business operations.
+          </p>
+
+          <a href="https://i.ibb.co/204RBj3y/gst.png" target="_blank" class="btn">
+            View Document
+          </a>
+        </div>
+      </div>
+
+      <div class="doc-card">
+        <div class="doc-image">
+          <img src="https://i.ibb.co/Q346r3Mx/iso.png" alt="ISO Certificate">
+        </div>
+
+        <div class="doc-content">
+          <h2>ISO Certification</h2>
+
+          <p>
+            International quality certification reflecting our commitment to standards and quality.
+          </p>
+
+          <a href="https://i.ibb.co/Q346r3Mx/iso.png" target="_blank" class="btn">
+            View Document
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  
+
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.doc-card');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  </script>
 
    <!-- Font Awesome CDN for Social Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -647,7 +873,7 @@
     <!-- Copyright -->
     <hr style="border: 0; height: 1px; background: rgba(255,255,255,0.4); margin: 20px 0;">
     <p style="font-size: 13px; margin: 0;">
-      © 2025 SK Spirulina Farming & Manufacturing, Karad. All Rights Reserved.
+      © 2026 SK Spirulina Farming & Manufacturing, Karad. All Rights Reserved.
     </p>
   </div>
 </footer>
